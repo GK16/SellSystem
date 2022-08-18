@@ -25,6 +25,9 @@ public class ProductCategory {
     //类目编号
     private Integer categoryType;
 
+    public ProductCategory() {
+    }
+
     public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;
         this.categoryType = categoryType;

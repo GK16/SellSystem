@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
@@ -33,6 +36,13 @@ public class ProductCategoryRepositoryTest {
         ProductCategory productCategory = new ProductCategory("综合最爱",5);
         ProductCategory res =  repository.save(productCategory);
         Assert.assertNotNull(res);
+    }
+
+    @Test
+    public void findByCategoryTypeIn(){
+        List<Integer> list = Arrays.asList(3,4,5);
+        List<ProductCategory> res = repository.findByCategoryTypeIn(list);
+        Assert.assertNotEquals(0, res.size());
     }
 
 
